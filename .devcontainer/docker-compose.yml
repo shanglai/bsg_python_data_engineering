@@ -6,8 +6,8 @@ services:
   workspace:
     image: mcr.microsoft.com/devcontainers/python:3.12
     volumes:
-      - ..:/workspace:cached
-    working_dir: /workspace
+      - ..:/workspaces/bsg_python_data_engineering:cached
+    working_dir: /workspaces/bsg_python_data_engineering
     command: sleep infinity
     environment:
       - MYSQL_HOST=mysql
