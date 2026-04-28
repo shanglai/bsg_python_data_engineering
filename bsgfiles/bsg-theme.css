@@ -1,0 +1,499 @@
+/* ============================================================
+   BSG Institute — Marpit Theme
+   Extraído de: sample_bsg.pptx  |  Tema "Oficial BSG PANORAMICA"
+   Formato base: 16:9  (1270 × 714 px en Marpit = 33.87 × 19.05 cm)
+   ============================================================
+
+   PALETA DE COLORES (extraída del PPTX)
+   ---------------------------------------------------------------
+   --bsg-navy        #002060   Azul marino oscuro (títulos de bloque)
+   --bsg-blue        #2C4290   Azul corporativo (banda master / fondo portada)
+   --bsg-green       #AFCA0A   Verde lima BSG (accent subtítulos, botones)
+   --bsg-orange      #FF8800   Naranja (badge/pill en portada)
+   --bsg-white       #FFFFFF   Blanco (texto sobre fondos oscuros)
+   --bsg-gray-text   #595959   Gris oscuro (texto logo "Institute")
+   --bsg-bg          #FFFFFF   Fondo base diapositivas de contenido
+
+   TIPOGRAFÍA (extraída del PPTX)
+   ---------------------------------------------------------------
+   Títulos principales : Franklin Gothic Book  (fallback: Arial, sans-serif)
+   Subtítulos / labels : Franklin Gothic Demi  (fallback: Arial Black, sans-serif)
+   Cuerpo / bullets    : Arial                 (fallback: Helvetica, sans-serif)
+   Elementos UI/code   : Amble Lt              (fallback: Arial, sans-serif)
+
+   LAYOUTS DISPONIBLES
+   ---------------------------------------------------------------
+   (default)          Diapositiva de contenido — banda azul izquierda
+   .title             Portada capítulo — fondo navy con banda
+   .section           Portada de sección — variante azul
+   .split             Contenido + imagen lateral derecha
+   .code              Slide de código/script
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* ── Variables globales ────────────────────────────────────── */
+:root {
+  --bsg-navy:      #002060;
+  --bsg-blue:      #2C4290;
+  --bsg-green:     #AFCA0A;
+  --bsg-orange:    #FF8800;
+  --bsg-white:     #FFFFFF;
+  --bsg-gray-text: #595959;
+  --bsg-bg:        #FFFFFF;
+  --bsg-light-bg:  #F5F5F5;
+  --bsg-border:    #E0E0E0;
+}
+
+/* ── Slide base — contenido estándar ───────────────────────── */
+section {
+  background-color: var(--bsg-bg);
+  color: var(--bsg-navy);
+  font-family: 'Arial', 'Helvetica Neue', sans-serif;
+  font-size: 18px;
+  line-height: 1.45;
+  padding: 0;
+  width: 1270px;
+  height: 714px;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Banda vertical azul izquierda (replica banda master slide 2/3) */
+section::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 75px;    /* debajo del área de header */
+  width: 5px;
+  height: calc(100% - 115px);
+  background-color: var(--bsg-blue);
+}
+
+/* Logo BSG en esquina superior derecha (usando CSS — reemplazar con img si se usa marpit backgroundImage) */
+section::after {
+  content: '● BSG Institute';
+  position: absolute;
+  top: 14px;
+  right: 22px;
+  font-size: 11px;
+  font-family: 'Arial', sans-serif;
+  color: var(--bsg-gray-text);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Línea separadora header */
+section > header,
+section header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background-color: var(--bsg-bg);
+  border-bottom: 2px solid var(--bsg-green);
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+/* ── Títulos ────────────────────────────────────────────────── */
+h1 {
+  font-family: 'Franklin Gothic Book', 'Arial', sans-serif;
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--bsg-navy);
+  margin: 90px 0 12px 30px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-family: 'Franklin Gothic Book', 'Arial', sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--bsg-blue);
+  margin: 8px 0 10px 30px;
+  line-height: 1.25;
+}
+
+h3 {
+  font-family: 'Arial', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--bsg-navy);
+  margin: 8px 0 6px 30px;
+}
+
+h4 {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--bsg-blue);
+  margin: 6px 0 4px 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── Cuerpo de texto ────────────────────────────────────────── */
+p {
+  margin: 6px 30px;
+  font-size: 17px;
+  color: var(--bsg-navy);
+}
+
+ul, ol {
+  margin: 6px 30px 6px 55px;
+  padding: 0;
+  font-size: 16px;
+  color: var(--bsg-navy);
+}
+
+li {
+  margin-bottom: 5px;
+  line-height: 1.4;
+}
+
+/* Bullets con color verde BSG */
+ul li::marker {
+  color: var(--bsg-green);
+}
+
+/* ── Número de página ───────────────────────────────────────── */
+section > footer,
+section footer {
+  position: absolute;
+  bottom: 8px;
+  right: 22px;
+  font-size: 11px;
+  color: var(--bsg-gray-text);
+  font-family: 'Arial', sans-serif;
+}
+
+/* ── Código inline y bloques ────────────────────────────────── */
+code {
+  font-family: 'Consolas', 'Courier New', monospace;
+  background-color: #EEF2F8;
+  color: var(--bsg-navy);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+pre {
+  margin: 10px 30px;
+  background-color: var(--bsg-navy);
+  color: #E8EAF0;
+  border-radius: 6px;
+  padding: 16px 20px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* ── Tablas ─────────────────────────────────────────────────── */
+table {
+  margin: 10px 30px;
+  border-collapse: collapse;
+  font-size: 14px;
+  width: calc(100% - 60px);
+}
+
+th {
+  background-color: var(--bsg-navy);
+  color: var(--bsg-white);
+  padding: 8px 12px;
+  text-align: left;
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+}
+
+td {
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--bsg-border);
+  color: var(--bsg-navy);
+}
+
+tr:nth-child(even) td {
+  background-color: var(--bsg-light-bg);
+}
+
+/* ── Blockquote (destacados) ────────────────────────────────── */
+blockquote {
+  margin: 10px 30px;
+  padding: 12px 20px;
+  border-left: 4px solid var(--bsg-green);
+  background-color: #F0F5E8;
+  color: var(--bsg-navy);
+  font-style: normal;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ── strong / em ────────────────────────────────────────────── */
+strong {
+  color: var(--bsg-blue);
+  font-weight: 700;
+}
+
+em {
+  color: var(--bsg-orange);
+  font-style: italic;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LAYOUT: .title — Portada de Capítulo
+   Replica slide 1: fondo blanco, banda navy al centro,
+   título grande y subtítulo en verde lima
+   ══════════════════════════════════════════════════════════════ */
+section.title {
+  background-color: var(--bsg-bg);
+  padding: 0;
+}
+
+section.title::before {
+  /* Banda horizontal azul navy al centro (replica master portada) */
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 30%;
+  width: 100%;
+  height: 34%;
+  background-color: var(--bsg-blue);
+}
+
+section.title::after {
+  /* Logo en portada — esquina superior derecha */
+  content: '● BSG Institute';
+  position: absolute;
+  top: 14px;
+  right: 22px;
+  font-size: 12px;
+  font-family: 'Arial', sans-serif;
+  color: var(--bsg-gray-text);
+}
+
+section.title h1 {
+  position: relative;
+  z-index: 2;
+  color: var(--bsg-white);
+  font-family: 'Franklin Gothic Book', 'Arial', sans-serif;
+  font-size: 42px;
+  font-weight: 400;
+  margin: 0;
+  padding: 0 70px;
+  /* Centra verticalmente dentro de la banda */
+  top: 33%;
+  transform: translateY(-10%);
+  line-height: 1.15;
+}
+
+section.title h2 {
+  position: relative;
+  z-index: 2;
+  color: var(--bsg-green);
+  font-family: 'Franklin Gothic Book', 'Arial', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0 70px;
+  top: 37%;
+  line-height: 1.2;
+}
+
+/* Badge naranja (opcional, agregar con ::before en h2.badge si se usa) */
+section.title .badge,
+section.title p.badge {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--bsg-orange);
+  color: var(--bsg-white);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 6px 24px;
+  border-radius: 20px;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 0.04em;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LAYOUT: .section — Portada de Sección
+   Variante: borde izquierdo grueso verde, título navy
+   ══════════════════════════════════════════════════════════════ */
+section.section {
+  background-color: var(--bsg-bg);
+}
+
+section.section::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10px;
+  height: 100%;
+  background-color: var(--bsg-green);
+}
+
+section.section h1 {
+  font-size: 38px;
+  color: var(--bsg-navy);
+  margin-top: 200px;
+  margin-left: 50px;
+}
+
+section.section h2 {
+  color: var(--bsg-blue);
+  font-size: 24px;
+  margin-left: 50px;
+}
+
+section.section p {
+  margin-left: 50px;
+  font-size: 16px;
+  color: var(--bsg-gray-text);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LAYOUT: .split — Contenido + imagen derecha
+   Replica slide 3: caja texto izquierda ~55%, imagen derecha
+   ══════════════════════════════════════════════════════════════ */
+section.split {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  grid-template-rows: 70px 1fr;
+  padding: 0;
+}
+
+section.split h1 {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: start;
+  font-size: 32px;
+  margin: 20px 0 8px 30px;
+}
+
+section.split h2 {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: center;
+  font-size: 22px;
+  margin-left: 30px;
+}
+
+section.split img {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LAYOUT: .code — Slide de código Python
+   Fondo navy, código destacado
+   ══════════════════════════════════════════════════════════════ */
+section.code {
+  background-color: var(--bsg-navy);
+  color: var(--bsg-white);
+}
+
+section.code::before {
+  background-color: var(--bsg-green);
+}
+
+section.code::after {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+section.code h1 {
+  color: var(--bsg-green);
+  font-size: 28px;
+  margin: 85px 0 8px 30px;
+}
+
+section.code h2 {
+  color: var(--bsg-white);
+  font-size: 20px;
+  margin: 0 0 8px 30px;
+}
+
+section.code p, section.code li {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+}
+
+section.code pre {
+  background-color: rgba(255, 255, 255, 0.07);
+  border-left: 3px solid var(--bsg-green);
+  margin: 8px 30px;
+}
+
+section.code strong {
+  color: var(--bsg-green);
+}
+
+section.code table th {
+  background-color: var(--bsg-blue);
+}
+
+section.code table td {
+  color: var(--bsg-white);
+  border-color: rgba(255,255,255,0.15);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LAYOUT: .invert — Fondo azul navy general
+   ══════════════════════════════════════════════════════════════ */
+section.invert {
+  background-color: var(--bsg-blue);
+  color: var(--bsg-white);
+}
+
+section.invert::before {
+  background-color: var(--bsg-green);
+}
+
+section.invert h1, section.invert h2, section.invert h3 {
+  color: var(--bsg-white);
+}
+
+section.invert strong {
+  color: var(--bsg-green);
+}
+
+section.invert p, section.invert li {
+  color: rgba(255,255,255,0.88);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   UTILIDADES — Badges / Pills (uso con span o em en md)
+   ══════════════════════════════════════════════════════════════ */
+
+/* Pill naranja: *texto* dentro de un bloque específico
+   Uso en md: **ST1** o `ST1` */
+section .pill {
+  display: inline-block;
+  background-color: var(--bsg-orange);
+  color: white;
+  font-size: 12px;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-family: 'Arial', sans-serif;
+  font-weight: 700;
+  margin-right: 4px;
+}
