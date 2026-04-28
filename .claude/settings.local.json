@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(update-config)",
+      "Bash(pip show *)",
+      "Bash(pip install *)",
+      "Bash(python3 *)",
+      "Bash(PYTHONIOENCODING=utf-8 python3 *)",
+      "Bash(python -m jupytext --version)",
+      "Bash(python3.12 -m jupytext --version)",
+      "Bash(PYTHONIOENCODING=utf-8 python *)"
+    ]
+  }
+}
