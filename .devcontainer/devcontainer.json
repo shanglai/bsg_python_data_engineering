@@ -2,7 +2,7 @@
   "name": "BSG Python Data Engineering",
   "dockerComposeFile": "docker-compose.yml",
   "service": "workspace",
-  "workspaceFolder": "/workspace",
+  "workspaceFolder": "/workspaces/bsg_python_data_engineering",
 
   "features": {
     "ghcr.io/devcontainers/features/python:1": {
