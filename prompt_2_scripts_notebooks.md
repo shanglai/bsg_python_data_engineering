@@ -18,7 +18,7 @@ El Prompt 1 ya creó la estructura del repo. Ahora debes:
 ## VARIABLES — ajusta antes de ejecutar
 
 ```
-CAPITULO = [N]          # número del capítulo a procesar (1-6)
+CAPITULO = 1          # número del capítulo a procesar (1-6)
 ```
 
 ---

@@ -15,7 +15,7 @@ Ahora debes generar el archivo de slides Marpit unificado para el capítulo [N].
 ## VARIABLES — ajusta antes de ejecutar
 
 ```
-CAPITULO = [N]          # número del capítulo a procesar (1-6)
+CAPITULO = 1          # número del capítulo a procesar (1-6)
 ```
 
 ---
